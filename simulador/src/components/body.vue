@@ -31,27 +31,27 @@
     <!-- Questionario -->
             <b-col col lg="8"  class="coluna2 ">
                 <h1>Questionário de Conclusão de Curso</h1>
-                <p class="subtitle">O objetivo desta revisão é trazer parte dos estudos sobre um assunto pouco explorado: a relação entre o exercício físico e os aspectos psicobiológicos.</p>
+                <p style="color:rgb(155, 155, 155)">O objetivo desta revisão é trazer parte dos estudos sobre um assunto pouco explorado: a relação entre o exercício físico e os aspectos psicobiológicos.</p>
                 <br>
                 <form>
                     <div class = "Cards">
                         
-                        <card :perguntas="grupo1"></card><br>
-                        <card/><br>
-                        <card/><br>
-                        <card/><br>
-                        <card/>
+                        <card :perguntas="perguntas1" :codLabel="codLabel1"></card><br>
+                        <card :perguntas="perguntas2" :codLabel="codLabel2"/><br>
+                        <card :perguntas="perguntas3" :codLabel="codLabel3"/><br>
+                        <card :perguntas="perguntas4" :codLabel="codLabel4"/><br>
+                        <card :perguntas="perguntas5" :codLabel="codLabel5"/>
                                
                     </div>
                     <div class="text-center botoes" >
-                        <b-button variant="danger"  class = "botao">Enviar</b-button> &nbsp;                  
+                        <b-button @click.prevent="verificar()" variant="danger"  class = "botao">Enviar</b-button> &nbsp;                  
                         <b-button variant="outline-dark" class = "botao">Voltar</b-button>
                     </div>
                  </form>
             </b-col>
             <!-- Parte da direita -->
             <b-col  col lg="4" class = "coluna3">
-                <div style="height: 580px">
+                <div style="height: 500px">
                     <b-tabs content-class="mt-3" fill>
                     <b-tab title="Aulas"  active><font-awesome-icon icon="play-circle"/> <p>Nenhum vídeo cadastrado</p></b-tab>
                     <b-tab title="Materiais" ><font-awesome-icon icon="file-alt"/>
@@ -64,6 +64,7 @@
         </b-row> 
          
     </b-container>
+   
 </template>
 
 
@@ -73,24 +74,38 @@ import card from './card.vue'
 import progresso from './progresso.vue'
 
 
-
-
 export default {
   name: 'corpo',
   components: {
       card,
     progresso
     
-    
   },
-  data: function(){
-      return{ 
-          grupo1:'grupo1'
-
+  data(){
+      return{
+      perguntas1: 'perguntas1',
+      perguntas2: 'perguntas2',
+      perguntas3: 'perguntas3',
+      perguntas4: 'perguntas4',
+      perguntas5: 'perguntas5',
+      
+      codLabel1: '1º',
+      codLabel2: '2º',
+      codLabel3: '3º',
+      codLabel4: '4º',
+      codLabel5: '5º',
       }
-  }
+  },
+  methods: {
+       verificar() {
+           
+          alert("jlaskdfjlskdjf")
+      },
+  },
+  props:{
 
-    
+  }
+   
 }
 
 </script>
@@ -99,7 +114,7 @@ export default {
 <style>
  .navLateral{
         width: 60px;
-        height: 587px;      
+        height: 100%;      
         background: #ffffff;
         background: linear-gradient(to top, #ffffff, #ffffff);
         border-radius: 0;
@@ -179,6 +194,7 @@ export default {
         left: 860px;
         text-decoration: none;
         color: black !important;
+        padding-bottom: 10px;
 
     }
     .nav-link{
