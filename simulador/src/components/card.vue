@@ -3,28 +3,23 @@
         <div class="card" > 
             <b-card class="text-start" style="border: none">
                 <div class="primary text-light " >                   
-                        <h4> Pergunta:</h4>
-                        <p></p>
+                        <h4> {{codLabel}} Pergunta:</h4>
+                        
                             <div >
-                            <div  class="subtitle" >                             
-                                &nbsp;&nbsp;&nbsp;<input   type="radio"  name= "resposta" id="A" value="A" >
-                                <label for="A" ><p style="padding-left:10px"> Option A</p></label>
+                            <div  class="subtitle" style="padding:5px"  >  
+                                <b-form-radio :name= "perguntas" value="A"> &nbsp; Option A</b-form-radio>                         
                             </div>
-                            <div class="subtitle" >
-                                &nbsp;&nbsp;&nbsp;<input type="radio" name="resposta" id="B" value="B" >
-                                <label for="B" ><p style="padding-left:10px">Option B</p></label>
+                            <div class="subtitle" style="padding:5px"  >
+                                <b-form-radio :name= "perguntas" value="B">&nbsp; Option B</b-form-radio>   
                             </div>
-                            <div class="subtitle" >
-                                &nbsp;&nbsp;&nbsp;<input type="radio" name="resposta" id="C" value="C"  >
-                                <label for="C" ><p style="padding-left:10px">Option C</p></label>
+                            <div class="subtitle" style="padding:5px" >
+                                <b-form-radio :name= "perguntas" value="C">&nbsp; Option C</b-form-radio>   
                             </div>
-                            <div class="subtitle" >
-                                &nbsp;&nbsp;&nbsp;<input type="radio" name="resposta" id="D" value="D"  >
-                                <label for="D" ><p style="padding-left:10px">Option D</p></label>
+                            <div class="subtitle" style="padding:5px" >
+                                <b-form-radio :name= "perguntas" value="D">&nbsp; Option D</b-form-radio>   
                             </div>
-                            <div class="subtitle ">
-                                &nbsp;&nbsp;&nbsp;<input type="radio" name="resposta" id="E" value="E"  >
-                                <label for="E" ><p style="padding-left:10px">Option E</p></label>
+                            <div class="subtitle " style="padding:5px" >
+                                <b-form-radio :name= "perguntas" value="E">&nbsp; Option E</b-form-radio>   
                                
                             
                         </div>
@@ -41,28 +36,35 @@
 
 
 <script>
-
+import body from './body.vue'
 export default {
     name: 'card',
+    component:{
+        body
+    },
     props:{
         perguntas:{
-            nome: String
+            type: String,
+            required: true
+        },
+        codLabel:{
+            type: String,
+            required:true
         }
+    
     }
-    }
+}
 </script>
 
-<style >
+<style  >
 
  .subtitle:hover{
-     background-color: rgb(27, 27, 27);
+     background-color: rgb(105, 105, 105);
      border-radius: 50px;
+     color: rgb(223, 223, 223);
  }
- input[type=radio]:checked{
-      background-color: rgb(27, 27, 27);
-        border-radius: 50px;
-
- }
+ 
+ 
  h4{
     color: black;
     padding-bottom: 10px ;
